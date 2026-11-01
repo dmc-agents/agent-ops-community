@@ -1,0 +1,10 @@
+# Every file counts as person-facing: a pull request that changes it shows a
+# real run. A '!' line excludes only tests, CI configuration and lock files,
+# retired code, or notes only developers or agents read. The target branch's
+# copy governs.
+*
+!.github/**
+!tests/**
+!AGENTS.md
+!CLAUDE.md
+!*.lock
