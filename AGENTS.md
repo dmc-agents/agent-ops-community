@@ -11,7 +11,7 @@ This block is the DMC review standard. Every DMC repository carries it at the to
 - Every pull request follows five steps:
   1. CodeRabbit reviews when the pull request leaves draft, and again only when you post `@coderabbitai review`. Fix every Critical and Major finding with a failing test first, reply on its thread, and post `@coderabbitai review` once per round. Never resolve a CodeRabbit thread yourself. CodeRabbit closes what it verifies and withdraws its change request; it approves a low-risk pull request itself.
   2. CI is green on the head commit.
-  3. For a `critical` pull request, once CodeRabbit has reviewed the head and has no change request open, request a review once from the people in `.github/critical-reviewers` with the command PR proof prints, then change nothing. A point CodeRabbit still disputes after a second round goes into that one request.
+  3. For a `critical` pull request, PR proof requests the review once, from the people in `.github/critical-reviewers`, when that approval is the only thing left. The author then changes nothing. Only a point CodeRabbit still disputes after a second round goes through the command PR proof prints, listed in one pull request comment.
   4. That person's approval of the head is final. For `routine` and `moderate`, CodeRabbit's approval is the approval.
   5. The CodeRabbit Triage rule merges once `CI`, `PR proof`, and `CodeRabbit Security` pass on the head. Never merge by hand and never use `gh pr merge --admin`.
 - PR proof's refusals name each next step. Full guide: https://github.com/dmc-technologies/coderabbit/blob/main/docs/coderabbit-for-dummies.md. The check: https://github.com/dmc-technologies/agent-ops/blob/main/.github/workflows/pr-proof.yml.
