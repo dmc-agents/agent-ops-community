@@ -9,9 +9,12 @@ on:
     types: [opened, edited, synchronize, reopened, ready_for_review, labeled, unlabeled]
   pull_request_review:
     types: [submitted, dismissed]
+  merge_group:
+    types: [checks_requested]
 
 permissions:
   actions: write
+  checks: read
   contents: read
   pull-requests: write
 
