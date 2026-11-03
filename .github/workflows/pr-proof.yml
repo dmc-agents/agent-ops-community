@@ -23,3 +23,6 @@ jobs:
   pr-proof:
     name: PR proof
     uses: dmc-technologies/agent-ops/.github/workflows/pr-proof.yml@main
+    secrets:
+      PR_PROOF_APP_ID: ${{ secrets.PR_PROOF_APP_ID }}
+      PR_PROOF_APP_KEY: ${{ secrets.PR_PROOF_APP_KEY }}
