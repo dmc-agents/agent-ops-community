@@ -24,14 +24,5 @@ jobs:
     name: PR proof
     uses: dmc-technologies/agent-ops/.github/workflows/pr-proof.yml@main
     secrets:
-      PR_PROOF_APP_ID: $ {{ secrets.PR_PROOF_APP_ID }}
-      PR_PROOF_APP_KEY: $ {{ secrets.PR_PROOF_APP_KEY }}
-""".replace("$ {{", "$" + "{{")  # Actions would substitute a literal expression inside the embedded run block.
-# The caller before it passed the app secrets; PR proof falls back to the built-in token there.
-EARLIER_CALLER = CALLER[: CALLER.index("    secrets:\n")]
-CAPTURED = re.compile(r"^Captured from\s+`?([0-9a-f]{7,40})\b", re.I | re.M)
-PENDING = "'Proof: pending' is allowed only on a draft pull request; record the proof from the green head, edit the description, then mark the pull request ready"
-
-
-def person_facing(base_text, head_text, added):
-    """The target branch's list governs, so a pull request cannot loosen its own rule. The pull request that first adds the file supplies its shape, but only CI configuration is excluded until the list reaches the target branch.
+      PR_PROOF_APP_ID: ${{ secrets.PR_PROOF_APP_ID }}
+      PR_PROOF_APP_KEY: ${{ secrets.PR_PROOF_APP_KEY }}
