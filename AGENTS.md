@@ -11,9 +11,9 @@ This block is the DMC review standard. Every DMC repository carries it at the to
 - Every pull request follows five steps:
   1. CodeRabbit reviews when the pull request leaves draft, and again only when you post `@coderabbitai review`. Fix every Critical and Major finding with a failing test first, reply on its thread, and post `@coderabbitai review` once per round. Never resolve a CodeRabbit thread yourself. CodeRabbit closes what it verifies and withdraws its change request; it approves a low-risk pull request itself.
   2. CI is green on the head commit.
-  3. For a `critical` pull request, PR proof requests the review once, from the people in `.github/critical-reviewers`, when that approval is the only thing left. The author then changes nothing. Only a point CodeRabbit still disputes after a second round goes through the command PR proof prints, listed in one pull request comment.
-  4. That person's approval of the head is final. For `routine` and `moderate`, CodeRabbit's approval is the approval.
-  5. The CodeRabbit Triage rule merges once `CI`, `PR proof`, and `CodeRabbit Security` pass on the head. Never merge by hand and never use `gh pr merge --admin`.
+  3. For a `critical` pull request, PR proof requests the review once, from the `dmc-developers` team, when that approval is the only thing left. The author then changes nothing. Only a point CodeRabbit still disputes after a second round goes through the command PR proof prints, listed in one pull request comment.
+  4. An approval of the head from a person who did not do the work is final: not the author, not a commit author, and not an agent account. Anyone may add another reviewer. For `routine` and `moderate`, CodeRabbit's approval is the approval.
+  5. When you mark the pull request ready, run `gh pr merge <n> --auto --merge` as yourself. Without write access, ask someone who has it to turn auto-merge on. GitHub merges it once `CI`, `PR proof`, and `CodeRabbit Security` pass on the head and step 4's approval exists. If GitHub reports that auto-merge is not allowed, ask a repository admin to turn on **Allow auto-merge**. A person may merge any pull request that is green and approved. Agents never merge by hand, and nobody uses `gh pr merge --admin`.
 - PR proof's refusals name each next step. Full guide: https://github.com/dmc-technologies/coderabbit/blob/main/docs/coderabbit-for-dummies.md. The check: https://github.com/dmc-technologies/agent-ops/blob/main/.github/workflows/pr-proof.yml.
 <!-- dmc-review-policy:end -->
 
